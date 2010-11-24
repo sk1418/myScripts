@@ -37,5 +37,3 @@ fi
 
 mencoder $1 -o $(echo ${inputF%%.*})_NEW.avi  -oac mp3lame -lameopts vbr=3:br=32 -ovc lavc -lavcopts vcodec=mpeg4:mbd=1:vbitrate=2500 -vf scale=$SCALE 2>/dev/null
 
-# extract video!!
-#mencoder 'jack.mkv' -ss 01:05:00 -endpos 00:xx:xx -ovc lavc -lavcopts vcodec=mpeg4:vhq:vbitrate=1200 -oac mp3lame -o output.avi
