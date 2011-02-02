@@ -1,0 +1,47 @@
+#!/usr/bin/python
+###################################################
+# python script to convert Units, Currency etc.
+#
+# The script sends request to Google Calculator and 
+# gets the response.
+# 
+# The express format should conform Google search api.
+#
+# Version: 1.0
+#
+# Kent 2011.02.01 
+# Email: kent dot yuan at gmail dot com.
+#
+#
+###################################################
+import urllib2
+import sys
+import re
+
+user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
+gUrl = "http://www.google.com/search?q="
+
+
+def parseResult(searchStr):
+    headers={'User-Agent':user_agent,} 
+    global gUrl
+    gUrl += searchStr
+    request=urllib2.Request(gUrl,None,headers)
+    html =urllib2.urlopen(request).read()
+
+
+    regex = """<img src=.*?calculator.*?.gif.*?<b>(.*?)</b>"""
+    p = re.compile(regex, re.DOTALL)
+    m = p.search(html)
+
+    if not m:
+        print "Request cannot be processed"
+        sys.exit(0)
+    print "" 
+    print m.group(1)
+    print "" 
+
+searchStr = sys.argv[1].replace(" ", "%20")
+parseResult(searchStr)
+
+
