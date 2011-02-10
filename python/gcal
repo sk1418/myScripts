@@ -2,8 +2,7 @@
 ###################################################
 # python script to convert Units, Currency etc.
 #
-# The script sends request to Google Calculator and 
-# gets the response.
+# The script is wrapper of google calculator.
 # 
 # The express format should conform Google search api.
 #
@@ -37,9 +36,13 @@ def parseResult(searchStr):
     if not m:
         print "Request cannot be processed"
         sys.exit(0)
+    s = m.group(1)
+
+    reHtml = re.compile("""<[^>]*>""")
+    s = reHtml.sub('',s)
     print "" 
-    print m.group(1)
-    print "" 
+    print s
+    print ""
 
 searchStr = sys.argv[1].replace(" ", "%20")
 parseResult(searchStr)
