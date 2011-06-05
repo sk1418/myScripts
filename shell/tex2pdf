@@ -21,7 +21,7 @@ checkInputPara(){
 if [ $# == 0 ]; then
     echo -e "
         ky_tex script generates pdf from latex source file using xelatex.
-        Usage: mytex [Option] <latex source file> 
+        Usage: $0 [Option] <latex source file> 
 
         Option:
             -a  keep all generated files (including .aux .log .out). without this
