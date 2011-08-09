@@ -13,7 +13,20 @@
 #  
 #  Kai Yuan  2010-08-29
 #######################################################################
+BKALL=0
+BKROOT=0
+BKBOOT=0
+BKHOME=0
+DATESTR=$(date +%Y%m%d)
+TARGET=/media/SK_BACKUP/Linux
+PACMAN=$TARGET/pacmanPKG
 
+# mv pacman packages to backup directory (root permission needed)
+mvPacman(){
+	cd /var/cache/pacman/pkg/
+	pwd
+	mv * $PACMAN
+}
 
 # backup / partition
 backupRoot(){
@@ -73,7 +86,7 @@ backupHome(){
 printUsage(){
     echo -e "\
         Usage: backup [OPTION]
-               default: backup -r -t /media/Backup/linuxBackup/
+               default: backup -r -t /media/SK_BACKUP/Linux
 
         OPTION
             -a  (same as -bmr) backup all partitions ( /, /boot and /home )
@@ -81,24 +94,21 @@ printUsage(){
             -m  only backup /home partition
             -r  only backup /  partition (Default)
             -t  <target directory> The target directory to save the backup archive.(.tgz file) 
-                Default target : /media/Backup/linuxBackup/
+                Default target :/media/SK_BACKUP/Linux
                 If the given directory doesn't exist, a new directory will be created. Any error during
                 directory creation will stop the backup process.
+			-p  move pacman cached pkgs(under /var/cache/pacman/pkg) to /media/SK_BACKUP/Linux/pacmanPKG
 
             -h  print this information"
 
 }
 
-BKALL=0
-BKROOT=0
-BKBOOT=0
-BKHOME=0
-DATESTR=$(date +%Y%m%d)
-TARGET=/media/Backup/linuxBackup
 
 
 
-while getopts ":t:abmrh" opt
+
+
+while getopts ":t:abmrph" opt
 do
     case $opt in
         a) BKALL=1 ;;
@@ -112,6 +122,8 @@ do
                 TARGET=$OPTARG
            fi 
            ;;
+		p) mvPacman
+			exit 0 ;;
         h) printUsage 
             exit 0 ;;
         ?) echo "unknown option"  
