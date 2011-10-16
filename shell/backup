@@ -89,7 +89,7 @@ printUsage(){
                default: backup -r -t /media/SK_BACKUP/Linux
 
         OPTION
-            -a  (same as -bmr) backup all partitions ( /, /boot and /home )
+            -a  (same as -bmrp) backup all partitions ( /, /boot and /home )
             -b  only backup /boot partition
             -m  only backup /home partition
             -r  only backup /  partition (Default)
@@ -156,11 +156,13 @@ TARGET=${TARGET%/}
 
 if [ "$BKALL" = "1" ]; then
     echo "$BKALL - bkall"
+	mvPacman 
     backupBoot $TARGET
     backupRoot $TARGET
     backupHome $TARGET
     exit 0
 elif [ "$BKROOT" = "1" ]; then
+	mvPacman 
     backupRoot $TARGET
 
 elif [ "$BKBOOT" = "1" ]; then 
