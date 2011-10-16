@@ -1,6 +1,6 @@
 MyScripts
 =========
 
-Some scripts for my personal usage.
+Some scripts(python +shell) for my personal usage.
 
 
