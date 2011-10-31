@@ -1,8 +1,12 @@
 #!/bin/bash 
 #
-# conveniently switch proxy settings, tinyproxy are required.
+# switch proxy settings, since python application "tinySwitch" was build, this script is NOT used any longer.
+#
 # Proxy-Authorization should already been added in tinyproxy.conf
 #AddHeader "Proxy-Authorization" "Basic VThDSVVDSEk6aDh4OGh5bXE="
+# 
+#
+# Kai Yuan
 lht6=57.20.4.6:8080
 lht7=57.20.4.7:8080
 

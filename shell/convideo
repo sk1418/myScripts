@@ -1,13 +1,13 @@
 #!/bin/bash
-
-#--------------------------------------------------------
-# convert video file to avi (MPEG4)
+#######################################################################
+# convert video file to avi (MPEG4) with customized scale
 #
-# - change the scale parameter (9.11)
-# - executed without any argument, show usage info. exit code 2. (9.13)
+# - change the scale parameter (2011-09-11)
+# - executed without any argument, show usage info. exit code 2. (2011-09-13)
 # 
-# Kai Yuan
-#--------------------------------------------------------
+# Kai Yuan 
+# kent.yuan at gmail dot com 
+#######################################################################
 inputF=
 SCALE=800:600
 if [ $# == 0 ]; then 

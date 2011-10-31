@@ -1,4 +1,10 @@
 #!/bin/bash
+#######################################################################
+# extract video clip as avi (Mpeg4) from video file
+# 
+# Kai Yuan
+# kent.yuan at gmail dot com
+#######################################################################
 inputF=
 if [ $# == 0 ]; then
 echo -e "\

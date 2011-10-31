@@ -1,7 +1,6 @@
 #!/bin/bash
-
 #######################################################################
-# backup script
+# tar based personal backup script
 #
 #  The backup is based on tar/gzip. Three partitions will be archived.
 #  1- /  

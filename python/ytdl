@@ -1,6 +1,6 @@
 #!/usr/bin/python
 ###################################################
-# python script to download youtube video.
+# python script to download youtube video, supports different quality/format options
 #
 # It supports user choosing different video 
 # quality/format to download.
