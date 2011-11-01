@@ -1,6 +1,6 @@
 #!/bin/bash
 #######################################################################
-# rename file simplified Chinese -> traditional Chinese (UTF-8)
+# rename files (*.mobi) simplified Chinese -> traditional Chinese (UTF-8)
 # 
 # Kai Yuan 
 # kent.yuan at gmail dot com
