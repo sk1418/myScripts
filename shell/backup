@@ -39,10 +39,11 @@ backupRoot(){
     exSys="--exclude=/sys"
     exDev="--exclude=/dev"
     exMedia="--exclude=/media"
+    exUsbMedia="--exclude=/run/media"
     exTmp="--exclude=/tmp"
 
     echo "[INFO] backing up / to $1............. "
-    tar cpzf $TARGET/root_$DATESTR.tgz / $exBoot $exHome $exProc $exLost $exMedia $exMnt $exSys $exDev $exTmp
+    tar cpzf $TARGET/root_$DATESTR.tgz / $exBoot $exHome $exProc $exLost $exMedia $exUsbMedia $exMnt $exSys $exDev $exTmp
     [ $? == 0 ] && echo "[INFO] backup / finished.  filename: root_$DATESTR.tgz"
     echo "----------------------------------------"
     
