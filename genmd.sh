@@ -1,8 +1,8 @@
 #!/bin/bash
 ########################################
-# gather all script info and generate Markdown README
+# gather all scripts info and generate Markdown README
 # 
-# the markdown format README is a overview of all scripts
+# the markdown format README is an overview of all scripts
 # it could be used at Bitbucket or Github
 # 
 # The script requires all script following a rule that
