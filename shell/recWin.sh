@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 #==============================================
 # A wrapper of byzanz-record, to ease x-window recording.
 # 
