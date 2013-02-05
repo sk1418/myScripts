@@ -13,7 +13,6 @@
 # 2011-11-01
 ########################################
 
-
 if [ $# != 2 ]; then
 	cat <<EOF
 	script to generate md format README for Bitbucket or Github.
