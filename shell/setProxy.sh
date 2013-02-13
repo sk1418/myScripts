@@ -1,6 +1,6 @@
 #!/bin/bash 
 #
-# switch proxy settings, since python application "tinySwitch" was build, this script is NOT used any longer.
+#[STOP_USED]switch proxy settings, since python application "tinySwitch" was build, this script is NOT used any longer.
 #
 # Proxy-Authorization should already been added in tinyproxy.conf
 #AddHeader "Proxy-Authorization" "Basic VThDSVVDSEk6aDh4OGh5bXE="

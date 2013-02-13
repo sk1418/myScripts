@@ -13,13 +13,13 @@
 # 2011-11-01
 ########################################
 
-if [ $# != 2 ]; then
+if [[ "$#" != "2" ]]; then
 	cat <<EOF
 	script to generate md format README for Bitbucket or Github.
 
 	Usage:
 		$0 <short desc line No.> <top level title>
-		example: $0 3 myScript
+		example: $0 3 myScripts
 	
 EOF
 
@@ -46,7 +46,10 @@ do
 	do
 		# awk line removing directory prefix and pushing INFO line to target file.
 		awk -v pre=$d -v idx=$1 -v target=$README \
-			'NR==idx{gsub(pre,"",FILENAME);gsub(/^#/,"");printf "\t- %-14s ---------- %s\n", FILENAME, $0 >> (target); exit; }'  $f
+            'NR==idx{gsub(pre,"",FILENAME);\
+            gsub(/^#/,"");\
+            f=gsub(/\[STOP_USED\]/,"");\
+            printf "\t- %-14s ---------- %s\n", FILENAME, (f?"_"$0"_":$0) >> (target); exit; }'  $f
 	done
 done
 

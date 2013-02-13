@@ -1,6 +1,6 @@
 #!/usr/bin/python
 ###################################################
-# python script to convert Units, Currency using google service.
+#[STOP_USED]python script to convert Units, Currency using google service.
 #
 # The script is wrapper of google calculator.
 # 
