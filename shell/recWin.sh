@@ -13,6 +13,7 @@
 #==============================================
 
 D=$1
+EXPORT_DIR="$HOME/Desktop/myTmp/GIF"
 #check argument, if not number or empty, set default duration
 if [[ -z "$D" || -n ${D//[0-9]/} ]]; then 
 	D=10 #default 10s
@@ -23,7 +24,7 @@ echo "Durtion of animation: ${D}"
 TMP=/tmp/wsize.tmp 
 
 #the recorded file path
-GIF=$HOME/GIF/$(date +%Y%m%d_%H%M%S).gif
+GIF=$EXPORT_DIR/$(date +%Y%m%d_%H%M%S).gif
 
 echo "please click the window you want to record.."
 xwininfo -frame > $TMP
