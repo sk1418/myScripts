@@ -70,8 +70,8 @@ backupBoot(){
 backupHome(){
     
     # exclude directories
-    exVBOX="--exclude=/home/kent/VirtualBox VMs"
-    exDropbox="--exclude=/home/kent/.dropbox"
+    exVBOX="--exclude=/home/kent/VirtualBox\ VMs"
+    exDropbox="--exclude=/home/kent/Dropbox"
     exDownloads="--exclude=/home/kent/downloads"
 
     echo "[INFO] backing up /home to $1, backup filename: home_$DATESTR.tgz"
