@@ -1,0 +1,37 @@
+#!/usr/bin/python
+###################################################
+# unzip zip file, convert GBK encoded filename into UTF8
+#
+# Author : Kent 2014.02.01
+# Email  : kent dot yuan at gmail dot com.
+#
+###################################################
+
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import zipfile
+
+def msg(text):
+    blue  = u'\x1b[34m'
+    clear = u'\x1b[0m'
+    print (blue + u' %s ' + clear) % text
+
+msg( u"unzip file: " + sys.argv[1])
+file=zipfile.ZipFile(sys.argv[1],"r");
+
+for name in file.namelist():
+    utf8name=name.decode('gbk')
+    msg( u"Extracting " + utf8name)
+    pathname = os.path.dirname(utf8name)
+    if not os.path.exists(pathname) and pathname!= "":
+        os.makedirs(pathname)
+    data = file.read(name)
+    if not os.path.exists(utf8name):
+        fo = open(utf8name, "w")
+        fo.write(data)
+        fo.close
+file.close()
+
+
