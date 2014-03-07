@@ -5,6 +5,7 @@
 #myScripts
 ##python/
 
+	- gbkUnzip       ----------  unzip zip file, convert GBK encoded filename into UTF8
 	- *gcal          ----------  [Deprecated] python script to convert Units, Currency using google service.
 	- *ytdl          ----------  [Deprecated] python script to download youtube video, supports different quality/format options
 ##shell/
