@@ -12,6 +12,7 @@
 
 	- 256c.txt       ----------   let s:darkcolumn = "234"
 	- 256tohex.sh    ----------  get hex color format from 256 color, useful when writing vim color scheme
+	- 2py2.sh        ----------  set python2 as default python 
 	- backup.sh      ----------  tar based personal backup script
 	- convideo       ----------  convert video file to avi (MPEG4) with customized scale
 	- dir2xml.sh     ----------  convert a directory tree structure to xml file.
@@ -20,6 +21,7 @@
 	- matrixT.sh     ----------  Matrix transpose with Awk
 	- mvfile2dir.sh  ----------  create dir with same name as file, and mv file in. e.g. /foo/a.txt a.jpg -> /foo/a/a.txt, a.jpg
 	- mvs2t.sh       ----------  rename files (*.mobi) simplified Chinese -> traditional Chinese (UTF-8)
+	- pullall.sh     ----------  pull all the git repository under 'myCodes'
 	- recVideo.sh    ----------  capture video from webcam save as mp4 file
 	- recWin.sh      ----------  A wrapper of byzanz-record, to ease x-window recording.
 	- *setProxy.sh   ----------  [Deprecated] switch proxy settings, since python application [tinySwitch] (https://github.com/sk1418/tinyswitch) was build, this script is NOT used any longer.
