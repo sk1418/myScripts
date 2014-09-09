@@ -2,6 +2,9 @@
 #########################################
 # Matrix transpose with Awk
 #
+# Usage: matrixT file fs ofs
+# The last two arguments are optional
+#
 # Kai Yuan
 # kent.yuan at gmail dot com
 #
