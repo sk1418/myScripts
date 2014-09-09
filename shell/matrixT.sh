@@ -9,9 +9,10 @@
 #
 #########################################
 fs=${2:-" "}
+ofs=${3:-" "}
 file=$1
 
-awk  -v FS="$fs" '{for (i=1;i<=NF;i++) a[i,NR]=$i; }END{
+awk  -v FS="$fs" -v OFS="$ofs" '{for (i=1;i<=NF;i++) a[i,NR]=$i; }END{
     for(i=1;i<=NF;i++) {
         for(j=1;j<=NR;j++)
 			printf "%s%s", a[i,j], (j==NR? ORS:OFS);
