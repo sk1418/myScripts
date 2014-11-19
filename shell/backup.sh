@@ -76,7 +76,7 @@ backupHome(){
     exOthers="--exclude=/home/kent/Desktop/myTmp/vboxShare"
 
     echo "[INFO] backing up /home to $1, backup filename: home_$DATESTR.tgz"
-    tar cpzf $TARGET/home_$DATESTR.tgz /home "$exVBOX" "$exDownloads" "$exDropbox" "$xOthers"
+    tar cpzf $TARGET/home_$DATESTR.tgz /home "$exVBOX" "$exDownloads" "$exDropbox" "$exOthers"
     [ $? == 0 ] && echo "[INFO] backup /home finished.  filename: home_$DATESTR.tgz"
     echo "----------------------------------------"
 }
