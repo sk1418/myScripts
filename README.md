@@ -26,4 +26,5 @@
 	- recWin.sh      ----------  A wrapper of byzanz-record, to ease x-window recording.
 	- *setProxy.sh   ----------  [Deprecated] switch proxy settings, since python application [tinySwitch] (https://github.com/sk1418/tinyswitch) was build, this script is NOT used any longer.
 	- shadow.sh      ----------  add shadow to a png image
+	- suspend.sh     ----------  rebind usb ports and suspend system (sudo/root needed)
 	- tex2pdf.sh     ----------  Generating pdf from latex source file using xelatex.
