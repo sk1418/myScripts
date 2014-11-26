@@ -17,7 +17,7 @@ BKROOT=0
 BKBOOT=0
 BKHOME=0
 DATESTR=$(date +%Y%m%d)
-TARGET=/run/media/kent/SK_BACKUP/Linux/
+TARGET=/run/media/kent/SK_BACKUP1/Linux
 PACMAN=$TARGET/pacmanPKG
 
 # mv pacman packages to backup directory (root permission needed)
