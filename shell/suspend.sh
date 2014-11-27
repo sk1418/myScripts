@@ -4,9 +4,9 @@
 ########################################
 USB_DIR="/sys/bus/pci/drivers/xhci_hcd"
 IDS=$(\ls -1 $USB_DIR|grep ':')
-echo "rebinding all usb ports ..."
+echo "Rebinding all usb ports ..."
 sudo echo -n "$IDS" > "$USB_DIR/unbind" && sudo echo -n "$IDS"> "$USB_DIR/bind" 
-echo "Done."
+test $? == "0" && echo -e "\nDone" || echo -e "\nFAILED!"
 echo "====================================="
 
 while true; do
