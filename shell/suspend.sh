@@ -7,9 +7,10 @@ IDS=$(\ls -1 $USB_DIR|grep ':')
 echo "rebinding all usb ports ..."
 sudo echo -n "$IDS" > "$USB_DIR/unbind" && sudo echo -n "$IDS"> "$USB_DIR/bind" 
 echo "Done."
+echo "====================================="
 
 while true; do
-    read -p "Suspend system?" yn
+    read -p "Suspend system [y/n]?" yn
     case $yn in
         [Yy]* ) systemctl suspend; break;;
         [Nn]* ) exit;;
