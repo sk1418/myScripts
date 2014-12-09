@@ -10,7 +10,7 @@ test $? == "0" && echo -e "\nDone" || echo -e "\nFAILED!"
 echo "====================================="
 
 while true; do
-    read -p "Suspend system [y/n]?" yn
+    read -p "Continue to suspend system [y/n]?" yn
     case $yn in
         [Yy]* ) systemctl suspend; break;;
         [Nn]* ) exit;;
