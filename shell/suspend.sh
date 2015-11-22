@@ -13,10 +13,10 @@ if [[ $? == "0" ]]; then
 	[[ "$OPT" == "-u" ]] && exit
 	systemctl suspend
 else
-	echo -e "\nFAILED! Forgot sudo?"
+	echo -e "\n USB rebinding FAILED! Forgot sudo?"
 	[[ "$OPT" == "-u" ]] && exit 1
 	while true; do
-		read -p "Continue to suspend system [y/n]?" yn
+		read -p "Continue to suspend system anyway [y/n]?" yn
 		case $yn in
 			[Yy]* ) systemctl suspend; break;;
 			[Nn]* ) exit;;
