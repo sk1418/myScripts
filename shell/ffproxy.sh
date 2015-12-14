@@ -24,7 +24,7 @@ echo "$PROXY_RAW"
 PROXY=$(grep -oP '[0-9.]+:\d+' <<< "$PROXY_RAW")
 echo "==============================="
 echo "Appling the proxy on pac file: $PAC_FILE"
-sed -i -r  "/var\s+china_proxy=/s/[0-9.]+:[0-9]+/$PROXY/" $PAC_FILE
+sed -i -r  "s/(\s*var\s+china_proxy=').*/\1$PROXY'/" $PAC_FILE
 echo "Done"
 echo "==============================="
 echo "In firefox network settings tab reload the pac file."

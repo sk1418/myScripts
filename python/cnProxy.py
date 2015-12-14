@@ -7,12 +7,14 @@
 #
 # Author : Kent 2015-11-04
 # Email  : kent dot yuan at gmail dot com.
-#
+# 
+# update 2015-12-14  proxy-list.org has ip:port base64 encrypted....
 ###################################################
 # -*- coding: utf-8 -*-
 
 import sys, re, requests
 from bs4 import BeautifulSoup
+import base64
 
 PROXY_POOL_URL = 'http://proxy-list.org/english/search.php?search=CN&country=CN&type=any&port=any&ssl=any&p=%d'
 
@@ -37,7 +39,7 @@ def parse_proxies():
     while True:
         html = requests.get(PROXY_POOL_URL%page).text
         table = BeautifulSoup(html, 'html.parser').find(id="proxy-table")
-        proxy_tags = table.find_all('li',class_='proxy', text=re.compile(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+'))
+        proxy_tags = table.find_all('script', text=re.compile(r'^\s*Proxy\s*\('))
         speed_tags = table.find_all('li',class_='speed', text=re.compile((r'[0-9.]k.*|-')))
         if not proxy_tags:
             break
@@ -45,7 +47,8 @@ def parse_proxies():
             speed = re.sub(r'kb.*','',speed_tag.string.strip())
             if re.match(r'[0-9.]+',speed) and float(speed) > 50:
                 proxy_tag = proxy_tags[speed_tags.index(speed_tag)]
-                proxies.append(Proxy(proxy_tag.string, float(speed)))
+                proxy_server = base64.b64decode(re.split(r"[\"\']",proxy_tag.string)[1])
+                proxies.append(Proxy(proxy_server, float(speed)))
         page += 1
     if proxies:
         return sorted(proxies,key=lambda x : x.speed, reverse=True)
