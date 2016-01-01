@@ -34,7 +34,7 @@ class Proxy(object):
             'red':u'\x1b[31;1m',
             'green':u'\x1b[34m'
             }
-        print '%s%s\t%s%s kb(or ranking)%s' % (style["green"],self.value, style["red"], self.speed, clear)
+        print '%s%s\t%s%s (kib or ranking)%s' % (style["green"],self.value, style["red"], self.speed, clear)
 
 
 def parse_proxies_1():
@@ -66,7 +66,6 @@ def parse_proxies_2():
     HEADERS['Cookie'] = 'peuland_id=35fefe23fedc52da9283ac5ed131cbab;peuland_md5=ca1f57155f5638ade3c28a900fbdbd55; w_h=1024; w_w=1280; w_cd=24; w_a_h=1024; w_a_w=1280'
     proxies = []
     s = requests.Session()
-    # print r.text
     i=max_page = 1
     while (i<=max_page):
         r = s.post(PROXY_POOL_URL_2, headers=HEADERS, data = {"country_code":"cn", "search_type":"all","page":str(i)})
