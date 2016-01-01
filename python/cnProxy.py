@@ -66,7 +66,6 @@ def parse_proxies_2():
     HEADERS['Cookie'] = 'peuland_id=35fefe23fedc52da9283ac5ed131cbab;peuland_md5=ca1f57155f5638ade3c28a900fbdbd55; w_h=1024; w_w=1280; w_cd=24; w_a_h=1024; w_a_w=1280'
     proxies = []
     s = requests.Session()
-    r= s.get("https://proxy.peuland.com/proxy_list_by_category.htm")
     # print r.text
     i=max_page = 1
     while (i<=max_page):
