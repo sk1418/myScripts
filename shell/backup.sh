@@ -23,7 +23,6 @@ PACMAN=$TARGET/pacmanPKG
 # mv pacman packages to backup directory (root permission needed)
 mvPacman(){
 	cd /var/cache/pacman/pkg/
-	pwd
 	mv * $PACMAN
 }
 
@@ -153,6 +152,9 @@ fi
 
 #removing the last "/"
 TARGET=${TARGET%/}
+
+#backup installed package, install as yaourt -S (<pkgs.list)
+awk '!a[$0]++' <(pacman -Qeq) <(pacman -Qmq)|sort >"$TARGET/pkgs.list"
 
 if [ "$BKALL" = "1" ]; then
     echo "$BKALL - bkall"
