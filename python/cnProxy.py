@@ -1,4 +1,3 @@
-#!/usr/bin/python2
 ###################################################
 # fetch China (default top 5) Proxies from http://proxy-list.org/
 #
@@ -34,7 +33,7 @@ class Proxy(object):
             'red':u'\x1b[31;1m',
             'green':u'\x1b[34m'
             }
-        print '%s%s\t%s%s (kib or ranking)%s' % (style["green"],self.value, style["red"], self.speed, clear)
+        print('%s%s\t%s%s(kib or ranking)%s' % (style["green"],self.value, style["red"], self.speed, clear))
 
 
 def parse_proxies_1():
@@ -71,12 +70,12 @@ def parse_proxies_2():
         r = s.post(PROXY_POOL_URL_2, headers=HEADERS, data = {"country_code":"cn", "search_type":"all","page":str(i)})
         servers_json = r.json()['data']
         for server in servers_json:
-            rate = base64.b64decode(server['time_downloadspeed'])
+            rate = int(base64.b64decode(server['time_downloadspeed']))
             if rate <=7 :
                 continue
             proxy = Proxy(\
-                        "%s:%s"%(base64.b64decode(server['ip']), \
-                                base64.b64decode(server['port'])),\
+                        "%s:%s"%(base64.b64decode(server['ip']).decode(), \
+                                base64.b64decode(server['port']).decode()),\
                                 rate)
             proxies.append(proxy) 
         max_page = int(r.json()['pagination']['maxpage'])
