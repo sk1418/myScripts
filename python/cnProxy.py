@@ -1,3 +1,4 @@
+#!/usr/bin/python
 ###################################################
 # fetch China (default top 5) Proxies from http://proxy-list.org/
 #
