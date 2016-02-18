@@ -13,7 +13,7 @@
 ###################################################
 # -*- coding: utf-8 -*-
 
-import sys, re, requests
+import sys, re, requests,json
 from bs4 import BeautifulSoup
 import base64
 
@@ -63,13 +63,16 @@ def parse_proxies_2():
     #headers
     HEADERS = {'User-Agent':AGENT}
     HEADERS['Referer'] = 'https://proxy.peuland.com/proxy_list_by_category.htm'
-    HEADERS['Cookie'] = 'peuland_id=35fefe23fedc52da9283ac5ed131cbab;peuland_md5=ca1f57155f5638ade3c28a900fbdbd55; w_h=1024; w_w=1280; w_cd=24; w_a_h=1024; w_a_w=1280'
+    HEADERS['Cookie'] = 'rand_id=jhk8uidlhofo55ulsfu0vrnli3;php_id=628472250;peuland_id=35fefe23fedc52da9283ac5ed131cbab;peuland_md5=ca1f57155f5638ade3c28a900fbdbd55; w_h=1024; w_w=1280; w_cd=24; w_a_h=1024; w_a_w=1280'
     proxies = []
     s = requests.Session()
     i=max_page = 1
     while (i<=max_page):
         r = s.post(PROXY_POOL_URL_2, headers=HEADERS, data = {"country_code":"cn", "search_type":"all","page":str(i)})
-        servers_json = r.json()['data']
+        txt = re.sub(r'^[^{]*', '', r.text)
+        # servers_json = r.json()['data']
+        json_obj = json.loads(txt)
+        servers_json = json_obj['data']
         for server in servers_json:
             rate = int(base64.b64decode(server['time_downloadspeed']))
             if rate <=7 :
@@ -79,7 +82,8 @@ def parse_proxies_2():
                                 base64.b64decode(server['port']).decode()),\
                                 rate)
             proxies.append(proxy) 
-        max_page = int(r.json()['pagination']['maxpage'])
+        # max_page = int(r.json()['pagination']['maxpage'])
+        max_page = int(json_obj['pagination']['maxpage'])
         i+=1
     if proxies:
         return sorted(proxies,key=lambda x : x.speed, reverse=True)
