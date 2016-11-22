@@ -10,6 +10,7 @@
 # 
 # update 2015-12-14  proxy-list.org has ip:port base64 encrypted....
 # update 2016-01-01  add peuland.com proxies
+# update 2016-11-22  peuland.com has changed some cookies' names
 ###################################################
 # -*- coding: utf-8 -*-
 
@@ -63,7 +64,7 @@ def parse_proxies_2():
     #headers
     HEADERS = {'User-Agent':AGENT}
     HEADERS['Referer'] = 'https://proxy.peuland.com/proxy_list_by_category.htm'
-    HEADERS['Cookie'] = 'rand_id=jhk8uidlhofo55ulsfu0vrnli3;php_id=628472250;peuland_id=35fefe23fedc52da9283ac5ed131cbab;peuland_md5=ca1f57155f5638ade3c28a900fbdbd55; w_h=1024; w_w=1280; w_cd=24; w_a_h=1024; w_a_w=1280'
+    HEADERS['Cookie'] = 'php_id=493316247; CNZZDATA1253154494=1665531259-1479808141-%7C1479808141;peuland_md5=9b941affd9b676f62ab93081f6cc9a1b; w_h=1200; w_w=1920; w_cd=24; w_a_h=1147; w_a_w=1920;peuland_id=649e2152bad01e29298950671635e44a;'
     proxies = []
     s = requests.Session()
     i=max_page = 1
