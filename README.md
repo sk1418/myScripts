@@ -15,6 +15,7 @@
 	- 256tohex.sh    ----------  get hex color format from 256 color, useful when writing vim color scheme
 	- 2py2.sh        ----------  set python2 as default python 
 	- backup.sh      ----------  tar based personal backup script
+	- borgBackup.sh  ----------  borg based personal backup script
 	- convideo       ----------  convert video file to avi (MPEG4) with customized scale
 	- dir2xml.sh     ----------  convert a directory tree structure to xml file.
 	- dvd.sh         ----------  convert DVD media to avi file
@@ -30,4 +31,5 @@
 	- *setProxy.sh   ----------  [Deprecated] switch proxy settings, since python application [tinySwitch] (https://github.com/sk1418/tinyswitch) was build, this script is NOT used any longer.
 	- shadow.sh      ----------  add shadow to a png image
 	- suspend.sh     ----------  rebind usb ports and suspend system (sudo/root needed)
+	- syncPhoto.sh   ----------  borg based backup photo
 	- tex2pdf.sh     ----------  Generating pdf from latex source file using xelatex.
