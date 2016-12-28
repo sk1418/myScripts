@@ -26,6 +26,7 @@ export BORG_PASSPHRASE="kent"
 
 # mv pacman packages to backup directory (root permission needed)
 mvPacman(){
+    echo "[INFO] move pacman pkgs  ............. "
 	cd /var/cache/pacman/pkg/
 	mv * $PACMAN
 }
@@ -83,12 +84,12 @@ backupHome(){
     exDropbox="--exclude=/home/kent/Dropbox"
     exDownloads="--exclude=/home/kent/downloads"
     exOthers="--exclude=/home/kent/Desktop/myTmp/vboxShare"
+	exCache="--exclude=/home/kent/.cache"
 
     echo "[INFO] backing up /home "
 
-    borg create -v --stats 
-		$TARGET/home::'home_{now:%y-%m-%d}' /home     \
-		"$exDownloads" "$exDropbox" "$exOthers" "$exVBOX"
+    borg create -v --stats $TARGET/home::'home_{now:%y-%m-%d}' /home  \
+		"$exDownloads" "$exDropbox" "$exOthers" "$exVBOX" "$exCache"
 
     [ $? == 0 ] && echo "[INFO] backup /home finished."
     echo "----------------------------------------"
