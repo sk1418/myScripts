@@ -35,20 +35,20 @@ mvPacman(){
 backupRoot(){
 
     #exclude directories
-    exBoot="--exclude=/boot"
-    exHome="--exclude=/home"
-    exProc="--exclude=/proc"
-    exLost="--exclude=/lost+found"
-    exMnt="--exclude=/mnt"
-    exSys="--exclude=/sys"
-    exDev="--exclude=/dev"
-    exMedia="--exclude=/media"
-    exUsbMedia="--exclude=/run/media"
-    exTmp="--exclude=/tmp"
+    exBoot="--exclude=sh:/boot"
+    exHome="--exclude=sh:/home"
+    exProc="--exclude=sh:/proc"
+    exLost="--exclude=sh:/lost+found"
+    exMnt="--exclude=sh:/mnt"
+    exSys="--exclude=sh:/sys"
+    exDev="--exclude=sh:/dev"
+    exMedia="--exclude=sh:/media"
+    exUsbMedia="--exclude=sh:/run/media"
+    exTmp="--exclude=sh:/tmp"
 
     echo "[INFO] backing up / to ............. "
 
-	borg create -v --stats                    \
+	borg create -pv --stats                    \
 		$TARGET/root::'root_{now:%y-%m-%d}' / \
 		$exBoot $exHome $exProc $exLost $exMedia $exUsbMedia $exMnt $exSys $exDev $exTmp
 
@@ -80,16 +80,16 @@ backupBoot(){
 backupHome(){
     
     # exclude directories
-    exVBOX="--exclude=/home/kent/VirtualBox\ VMs"
-    exDropbox="--exclude=/home/kent/Dropbox"
-    exDownloads="--exclude=/home/kent/downloads"
-    exOthers="--exclude=/home/kent/Desktop/myTmp/vboxShare"
-	exCache="--exclude=/home/kent/.cache"
+    exVBOX="--exclude=re:/home/kent/VirtualBox.*"
+    exDropbox="--exclude=sh:/home/kent/Dropbox"
+    exDownloads="--exclude=sh:/home/kent/downloads"
+    exOthers="--exclude=sh:/home/kent/Desktop/myTmp/vboxShare"
+	exCache="--exclude=sh:/home/kent/.cache"
 
-    echo "[INFO] backing up /home "
+    echo "[INFO] backing up /home partition"
 
-    borg create -v --stats $TARGET/home::'home_{now:%y-%m-%d}' /home  \
-		"$exDownloads" "$exDropbox" "$exOthers" "$exVBOX" "$exCache"
+    borg create -pv --stats $TARGET/home::'home_{now:%y-%m-%d}' /home  \
+		$exDownloads $exDropbox $exOthers $exVBOX $exCache
 
     [ $? == 0 ] && echo "[INFO] backup /home finished."
     echo "----------------------------------------"
