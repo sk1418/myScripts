@@ -18,7 +18,8 @@ BKROOT=0
 BKBOOT=0
 BKHOME=0
 DATESTR=$(date +%Y%m%d)
-TARGET=/run/media/kent/SK_BACKUP/borgBackup
+#TARGET=/run/media/kent/SK_BACKUP/borgBackup
+TARGET=/media/borgBackup
 PACMAN=$TARGET/pacmanPKG
 
 #borg passphrase
