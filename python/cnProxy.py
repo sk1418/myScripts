@@ -35,7 +35,7 @@ class Proxy(object):
             'red':u'\x1b[31;1m',
             'green':u'\x1b[34m'
             }
-        print('%s%s\t%s%s(kib or ranking)%s' % (style["green"],self.value, style["red"], self.speed, clear))
+        print('%s%-25s\t%s%s(kib or ranking)%s' % (style["green"],self.value, style["red"], self.speed, clear))
 
 
 def parse_proxies_1():
@@ -54,6 +54,7 @@ def parse_proxies_1():
             if re.match(r'[0-9.]+',speed) and float(speed) > 50:
                 proxy_tag = proxy_tags[speed_tags.index(speed_tag)]
                 proxy_server = base64.b64decode(re.split(r"[\"\']",proxy_tag.string)[1])
+                proxy_server =proxy_server.decode('utf-8') if proxy_server else '---'
                 proxies.append(Proxy(proxy_server, float(speed)))
         page += 1
     if proxies:
@@ -92,7 +93,7 @@ def parse_proxies_2():
 if __name__ == '__main__':
     n = 5 if len(sys.argv)<2 or int(sys.argv[1])<=0 else int(sys.argv[1])
     #test peuland proxies only
-    proxies = parse_proxies_2()
+    proxies = parse_proxies_1()
     n = len(proxies) if len(proxies) < n else n
     for p in proxies[:n]:
         p.print_proxy()
