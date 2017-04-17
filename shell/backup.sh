@@ -42,7 +42,7 @@ backupRoot(){
     exTmp="--exclude=/tmp"
 
     echo "[INFO] backing up / to $1............. "
-    tar cpzf $TARGET/root_$DATESTR.tgz / $exBoot $exHome $exProc $exLost $exMedia $exUsbMedia $exMnt $exSys $exDev $exTmp
+    tar cpzfv $TARGET/root_$DATESTR.tgz $exBoot $exHome $exProc $exLost $exMedia $exUsbMedia $exMnt $exSys $exDev $exTmp /
     [ $? == 0 ] && echo "[INFO] backup / finished.  filename: root_$DATESTR.tgz"
     echo "----------------------------------------"
     
@@ -57,7 +57,7 @@ backupBoot(){
     exLostFound="--exclude=/boot/lost+found"
 
     echo "[INFO] backing up /boot to $1..........."
-    sudo tar cpzf $TARGET/boot_$DATESTR.tgz /boot $exLostFound
+    sudo tar cpzf $TARGET/boot_$DATESTR.tgz $exLostFound /boot
    [ $? == 0 ] && echo "[INFO] backup /boot finished.  filename: boot_$DATESTR.tgz"
     echo "----------------------------------------"
 }
@@ -75,7 +75,7 @@ backupHome(){
     exOthers="--exclude=/home/kent/Desktop/myTmp/vboxShare"
 
     echo "[INFO] backing up /home to $1, backup filename: home_$DATESTR.tgz"
-    tar cpzf $TARGET/home_$DATESTR.tgz /home "$exVBOX" "$exDownloads" "$exDropbox" "$exOthers"
+    tar cpzf $TARGET/home_$DATESTR.tgz "$exVBOX" "$exDownloads" "$exDropbox" "$exOthers" /home
     [ $? == 0 ] && echo "[INFO] backup /home finished.  filename: home_$DATESTR.tgz"
     echo "----------------------------------------"
 }
