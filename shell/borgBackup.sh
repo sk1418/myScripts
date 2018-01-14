@@ -50,7 +50,7 @@ backupRoot(){
     echo "[INFO] backing up / to ............. "
 
 	borg create -pv --stats                    \
-		$TARGET/root::'root_{now:%y-%m-%d}' / \
+		$TARGET/root::'root_{now:%Y-%m-%d}' / \
 		$exBoot $exHome $exProc $exLost $exMedia $exUsbMedia $exMnt $exSys $exDev $exTmp
 
     [ $? == 0 ] && echo "[INFO] backup / finished."
@@ -68,7 +68,7 @@ backupBoot(){
     echo "[INFO] backing up /boot to ..........."
 
 	borg create -v --stats                    \
-		$TARGET/boot::'boot_{now:%y-%m-%d}' /boot $exLostFound
+		$TARGET/boot::'boot_{now:%Y-%m-%d}' /boot $exLostFound
 
    [ $? == 0 ] && echo "[INFO] backup /boot finished."
     echo "----------------------------------------"
@@ -89,7 +89,7 @@ backupHome(){
 
     echo "[INFO] backing up /home partition"
 
-    borg create -pv --stats $TARGET/home::'home_{now:%y-%m-%d}' /home  \
+    borg create -pv --stats $TARGET/home::'home_{now:%Y-%m-%d}' /home  \
 		$exDownloads $exDropbox $exOthers $exVBOX $exCache
 
     [ $? == 0 ] && echo "[INFO] backup /home finished."
