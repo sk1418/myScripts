@@ -83,6 +83,7 @@ backupHome(){
     # exclude directories
     exVBOX="--exclude=re:/home/kent/VirtualBox.*"
     exDropbox="--exclude=sh:/home/kent/Dropbox"
+    exNextcloud="--exclude=sh:/home/kent/Nextcloud"
     exDownloads="--exclude=sh:/home/kent/downloads"
     exOthers="--exclude=sh:/home/kent/Desktop/myTmp/vboxShare"
 	exCache="--exclude=sh:/home/kent/.cache"
@@ -90,7 +91,7 @@ backupHome(){
     echo "[INFO] backing up /home partition"
 
     borg create -pv --stats $TARGET/home::'home_{now:%Y-%m-%d}' /home  \
-		$exDownloads $exDropbox $exOthers $exVBOX $exCache
+		$exDownloads $exDropbox $exOthers $exVBOX $exCache $exNextcloud
 
     [ $? == 0 ] && echo "[INFO] backup /home finished."
     echo "----------------------------------------"

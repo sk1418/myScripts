@@ -23,5 +23,4 @@ else
 			* ) echo "Please answer y or n.";;
 		esac
 	done
-
 fi
