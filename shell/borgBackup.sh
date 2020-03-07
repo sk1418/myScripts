@@ -27,9 +27,13 @@ export BORG_PASSPHRASE="kent"
 
 # mv pacman packages to backup directory (root permission needed)
 mvPacman(){
-    echo "[INFO] move pacman pkgs  ............. "
+	echo "[INFO] move pacman pkgs (yaourt) ............. "
 	cd /var/cache/pacman/pkg/
 	mv * $PACMAN
+	echo "[INFO] move pacman pkgs (yay) ............. "
+	find /home/kent/.cache/yay -iname "*.xz" |xargs mv -I {} mv '{}' $PACMAN
+	rm -rf /home/kent/.cache/yay/*
+
 }
 
 # backup / partition
@@ -85,7 +89,7 @@ backupHome(){
     exDropbox="--exclude=sh:/home/kent/Dropbox"
     exNextcloud="--exclude=sh:/home/kent/Nextcloud"
     exDownloads="--exclude=sh:/home/kent/downloads"
-    exOthers="--exclude=sh:/home/kent/Desktop/myTmp/vboxShare"
+    exOthers="--exclude=sh:/home/kent/vboxShare"
 	exCache="--exclude=sh:/home/kent/.cache"
 
     echo "[INFO] backing up /home partition"

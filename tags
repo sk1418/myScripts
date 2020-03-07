@@ -1,0 +1,55 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BORDER	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^BORDER='>>>>>>>>>>>>>>>>>>>>>>>>>>>'$/;"	v
+PROXY_POOL_1	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^PROXY_POOL_1 = 'proxy-list.org proxies:'$/;"	v
+PROXY_POOL_2	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^PROXY_POOL_2 = 'peuland.com proxies:'$/;"	v
+PROXY_POOL_3	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^PROXY_POOL_3 = 'free-proxy.cz proxies:'$/;"	v
+PROXY_POOL_URL_1	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^PROXY_POOL_URL_1 = 'http:\/\/proxy-list.org\/english\/search.php?search=CN&country=CN&type=any&p/;"	v
+PROXY_POOL_URL_2	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^PROXY_POOL_URL_2 = 'https:\/\/proxy.peuland.com\/proxy\/search_proxy.php'$/;"	v
+PROXY_POOL_URL_3	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^PROXY_POOL_URL_3 = 'http:\/\/free-proxy.cz\/en\/proxylist\/country\/CN\/http\/ping\/all\/%d'$/;"	v
+Proxy	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^class Proxy(object):$/;"	c
+Proxy	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^class Proxy(object):$/;"	c
+__init__	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^    def __init__(self, value, speed):$/;"	m	class:Proxy
+__init__	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    def __init__(self, value):$/;"	m	class:Proxy
+__init__	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    def __init__(self, value, response=-1, speed=-1):$/;"	m	class:Proxy
+__init__	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    def __init__(self, value, speed):$/;"	m	class:Proxy
+__init__	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    def __init__(self, value, speed=-1, response=-1):$/;"	m	class:Proxy
+clear	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^clear = u'\\x1b[0m'$/;"	v
+main	/home/kent/MyStuff/myCodes/scripts/python/./gbkUnzip.py	/^def main(the_zip):$/;"	f
+msg	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^def msg(style_key,text):$/;"	f
+msg	/home/kent/MyStuff/myCodes/scripts/python/./gbkUnzip.py	/^def msg(style_key,text):$/;"	f
+msg	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^                            def msg(style_key,text):$/;"	f	function:parse_proxies
+msg	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^def msg(style_key,text):$/;"	f
+n	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^    n = len(proxies) if len(proxies) < n$/;"	v
+n	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^    n = sys.argv[1] if len(sys.argv)<2 or int(sys.argv[1])<=0 else 5$/;"	v
+n	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    n = 5 if len(sys.argv)<2 or int(sys.argv[1])<=0 else int(sys.argv[1])$/;"	v
+n	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    n = 5 if len(sys.argv)<2 or int(sys.argv[1])<=0 else sys.argv[1]$/;"	v
+n	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    n = len(proxies) if len(proxies) < n else n$/;"	v
+n	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    n = len(proxies) if len(proxies) < n$/;"	v
+n	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    n = sys.argv[1] if len(sys.argv)<2 or int(sys.argv[1])<=0 else 5$/;"	v
+n	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^n = len(proxies) if len(proxies) < n$/;"	v
+n	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^n = sys.argv[1] if len(sys.argv)<2 or int(sys.argv[1])<=0 else 5$/;"	v
+page	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^def page$/;"	f
+parseResult	/home/kent/MyStuff/myCodes/scripts/python/./gcal	/^def parseResult(searchStr):$/;"	f
+parse_proxies	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^def parse_proxies():$/;"	f
+parse_proxies	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^def parse_proxies():$/;"	f
+parse_proxies_1	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^def parse_proxies_1():$/;"	f
+parse_proxies_2	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^def parse_proxies_2():$/;"	f
+parse_proxies_3	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^def parse_proxies_3():$/;"	f
+print	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^    def print(self):$/;"	m	class:Proxy
+print_proxy	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    def print_proxy(self):$/;"	m	class:Proxy
+proxies	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^    proxies = parse_proxies()$/;"	v
+proxies	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    proxies = parse_proxies()$/;"	v
+proxies	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    proxies = parse_proxies_1()$/;"	v
+proxies	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    proxies = parse_proxies_2()$/;"	v
+proxies	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^    proxies = parse_proxies_3()$/;"	v
+proxies	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^proxies = parse_proxies()$/;"	v
+searchStr	/home/kent/MyStuff/myCodes/scripts/python/./gcal	/^searchStr = urllib.quote(sys.argv[1])$/;"	v
+style	/home/kent/MyStuff/myCodes/scripts/python/./cnProxy.py	/^style={$/;"	v
+style	/home/kent/MyStuff/myCodes/scripts/python/./gbkUnzip.py	/^style={$/;"	v
+style	/home/kent/MyStuff/myCodes/scripts/python/cnProxy.py	/^style={$/;"	v
+user_agent	/home/kent/MyStuff/myCodes/scripts/python/./gcal	/^user_agent = 'Mozilla\/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko\/2009021910 Firefox\/3.0.7'$/;"	v

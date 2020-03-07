@@ -14,7 +14,7 @@
 ###################################################
 # -*- coding: utf-8 -*-
 
-import sys, re, requests,json
+import time, sys, re, requests,json
 from bs4 import BeautifulSoup
 import base64
 
@@ -24,10 +24,13 @@ PROXY_POOL_URL_1 = 'http://proxy-list.org/english/search.php?search=CN&country=C
 PROXY_POOL_2 = 'peuland.com proxies:'
 PROXY_POOL_URL_2 = 'https://proxy.peuland.com/proxy/search_proxy.php'
 
+PROXY_POOL_3 = 'free-proxy.cz proxies:'
+PROXY_POOL_URL_3 = 'http://free-proxy.cz/en/proxylist/country/CN/http/ping/all/%d'
 class Proxy(object):
-    def __init__(self, value, speed):
+    def __init__(self, value, response=-1, speed=-1):
         self.value = value
-        self.speed = int(speed)
+        self.response = response
+        self.speed = speed
 
     def print_proxy(self):
         clear = u'\x1b[0m'
@@ -35,8 +38,32 @@ class Proxy(object):
             'red':u'\x1b[31;1m',
             'green':u'\x1b[34m'
             }
-        print('%s%-25s\t%s%s(kib or ranking)%s' % (style["green"],self.value, style["red"], self.speed, clear))
+        print('%s%-25s\t%sspeed: %d\tresponse: %d ms%s' % (style["green"],self.value,style["red"],self.speed, self.response, clear))
 
+
+def parse_proxies_3():
+    page = 1
+    #empty list
+    proxies = []
+    # raw=open('/tmp/foo.html','r')
+    # while True:
+    html = requests.get(PROXY_POOL_URL_3 % page).text
+    # html = raw
+    # if not html or page >3:
+        # break;
+    table = BeautifulSoup(html, 'html.parser').find(id="proxy_list").find('tbody')
+    rows = table.find_all('tr')
+    #only take http/s
+    rows = list(filter(lambda tr: len(tr.contents)>5 and re.match(r'^http', tr.contents[2].text, re.I), rows))
+    for row in rows:
+        ip = base64.b64decode(re.split(r"[\"\']",row.contents[0].text)[1])
+        port = row.contents[1].text
+        response = re.split(r'\s*ms',row.contents[-2].text)[0] # "1234 ms"
+        proxies.append(Proxy("%s:%s"%(ip.decode('UTF-8'),port), response = int(response)))
+    # page += 1
+    # time.sleep(1)
+    if proxies:
+        return sorted(proxies,key=lambda x : x.response)
 
 def parse_proxies_1():
     page = 1
@@ -49,13 +76,10 @@ def parse_proxies_1():
         speed_tags = table.find_all('li',class_='speed', text=re.compile((r'[0-9.]k.*|-')))
         if not proxy_tags:
             break
-        for speed_tag in speed_tags:
-            speed = re.sub(r'kb.*','',speed_tag.string.strip())
-            if re.match(r'[0-9.]+',speed) and float(speed) > 50:
-                proxy_tag = proxy_tags[speed_tags.index(speed_tag)]
-                proxy_server = base64.b64decode(re.split(r"[\"\']",proxy_tag.string)[1])
-                proxy_server =proxy_server.decode('utf-8') if proxy_server else '---'
-                proxies.append(Proxy(proxy_server, float(speed)))
+        for proxy_tag in proxy_tags:
+            proxy_server = base64.b64decode(re.split(r"[\"\']",proxy_tag.string)[1])
+            proxy_server =proxy_server.decode('utf-8') if proxy_server else '---'
+            proxies.append(Proxy(proxy_server))
         page += 1
     if proxies:
         return sorted(proxies,key=lambda x : x.speed, reverse=True)
@@ -93,7 +117,7 @@ def parse_proxies_2():
 if __name__ == '__main__':
     n = 5 if len(sys.argv)<2 or int(sys.argv[1])<=0 else int(sys.argv[1])
     #test peuland proxies only
-    proxies = parse_proxies_1()
+    proxies = parse_proxies_3()
     n = len(proxies) if len(proxies) < n else n
     for p in proxies[:n]:
         p.print_proxy()
