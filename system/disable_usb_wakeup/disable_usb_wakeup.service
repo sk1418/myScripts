@@ -1,0 +1,9 @@
+[Unit]
+Description=Do not let device on USB wake up system from suspend
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/disable_usb_wakeup.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -31,7 +31,7 @@ mvPacman(){
 	cd /var/cache/pacman/pkg/
 	mv * $PACMAN
 	echo "[INFO] move pacman pkgs (yay) ............. "
-	find /home/kent/.cache/yay -iname "*.xz" |xargs mv -I {} mv '{}' $PACMAN
+	find /home/kent/.cache/yay -iname "*.xz" |xargs -I {} mv '{}' -t $PACMAN
 	rm -rf /home/kent/.cache/yay/*
 
 }
