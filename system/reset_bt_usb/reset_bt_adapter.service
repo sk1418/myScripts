@@ -1,0 +1,13 @@
+[Unit]
+Description=reset bluetooth usb adaptor
+After=suspend.target
+
+[Service]
+User=root
+Type=oneshot
+ExecStart=/usr/local/bin/reset_bt_adapter.sh
+TimeoutSec=0
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target

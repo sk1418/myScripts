@@ -41,6 +41,7 @@ backupRoot(){
 
     #exclude directories
     exBoot="--exclude=sh:/boot"
+	exDhcpd="--exclude=sh:/var/lib/dhcpcd/proc"
     exHome="--exclude=sh:/home"
     exProc="--exclude=sh:/proc"
     exLost="--exclude=sh:/lost+found"
@@ -55,7 +56,7 @@ backupRoot(){
 
 	borg create -pv --stats                    \
 		$TARGET/root::'root_{now:%Y-%m-%d}' / \
-		$exBoot $exHome $exProc $exLost $exMedia $exUsbMedia $exMnt $exSys $exDev $exTmp
+		$exBoot $exHome $exProc $exLost $exMedia $exUsbMedia $exMnt $exSys $exDev $exTmp $exDhcpd
 
     [ $? == 0 ] && echo "[INFO] backup / finished."
     echo "----------------------------------------"

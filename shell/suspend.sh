@@ -24,3 +24,4 @@ else
 		esac
 	done
 fi
+# vim: filetype=bash autoindent expandtab shiftwidth=2 ts=2 
