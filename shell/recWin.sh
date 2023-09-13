@@ -34,5 +34,5 @@ Y=$(awk -F: '/Absolute upper-left Y:/{print $2}' $TMP)
 WIDTH=$(grep -Po "(?<=Width: )\d+" $TMP)
 HEIGHT=$(grep -Po "(?<=Height: )\d+" $TMP)
 
-byzanz-record -d $D -x $X -y $Y -w $WIDTH -h $HEIGHT $GIF
+byzanz-record --delay=2 -v -d $D -x $((X/2)) -y $((Y/2)) -w $((WIDTH/2)) -h $((HEIGHT/2)) $GIF
 echo "GIF animation was saved as ${GIF}"
